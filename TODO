@@ -1,0 +1,47 @@
+Problem description: Salary slip generator for a German company
+
+In Germany salary slip contains employee details like employee tax id, employee name and their monthly salary details like their gross salary, national insurance contributions, tax-free allowance, taxable income and tax payable.
+Salary slips are generated each month for every employee.
+
+Acceptance criteria:
+Salary slip generator should receive a list of employees with their Employee Tax ID, Name and Annual Gross Salary
+Salary slip should contain the Employee Tax ID, Employee Name, Gross Salary, Medical Insurance contributions, Tax-free allowance, Taxable income and Tax payable for the month
+Basic error handling should be implemented, e.g Employee Tax ID should exist, Employee Name should be defined, Gross Salary should not be 0 or negative.
+The entry point should be the following interface, which you can not change:
+      class SalarySlipGenerator {
+        def generateFor(employees: List[Employee]): List[SalarySlip]
+      }
+You can, of course, add private methods and fields to the SalarySlipGenerator class, change the constructor, and add extra classes.
+Iteration 1: for any annual salary
+This is the most basic case. For example,
+Given We have an employee Peter Mustermann with an annual gross salary of 5,000.00 Euro
+When We generate a monthly salary slip for the employee
+Then the monthly salary slip should contain the below:
+   Employee Tax ID: 12345
+   Employee Name: Peter Mustermann
+   Gross Salary: 416.67 Euro
+Calculation rules:
+Monthly Gross Salary: The monthly gross salary is the employee's annual gross salary divided by 12
+
+Employee
+
+Name
+TaxID
+
+SalaryInformation
+ GrossSalary
+ TaxFreeAllowance
+ TaxPercentage
+
+
+SalarySlip
+ EmployeInfo
+   Name
+   TaxID
+
+ SalaryInformation
+
+ Period
+ Net Salary
+
+Regards,
